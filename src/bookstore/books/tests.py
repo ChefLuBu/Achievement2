@@ -12,7 +12,7 @@ class BookModelTest(TestCase):
             author_name="J.K. Rowling",
             genre="fantasy",
             book_type="hardcover",
-            price="25.00",
+            price= "25.00"
         )
 
     def test_title_content(self):
@@ -42,5 +42,7 @@ class BookModelTest(TestCase):
 
     def test_price_content(self):
         book = Book.objects.get(id=1)
-        expected_object_name = f"{book.price}"
-        self.assertEquals(expected_object_name, "25.00")
+        # expected_object_name = f"{book.price}"
+
+        expected_object_name = format(book.price, '.2f')
+        self.assertEquals(expected_object_name, '25.00')
