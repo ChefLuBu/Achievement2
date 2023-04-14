@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "cooking_time",
+    "directions",
+    "ingredients",
+    "recipe_app",
+    "recipe_name",
 ]
 
 MIDDLEWARE = [
