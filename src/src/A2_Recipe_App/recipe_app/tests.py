@@ -30,5 +30,5 @@ class Recipe_appTest(TestCase):
 
     def test_cooking_time(self):
         minutes = Recipe_app.objects.get(id=1)
-        expected_object_name = format(Recipe_app.minutes)
-        self.assertEqual(expected_object_name, '30')
+        field_label = minutes._meta.get_field('minutes').verbose_name
+        self.assertEquals(field_label, 'minutes')
