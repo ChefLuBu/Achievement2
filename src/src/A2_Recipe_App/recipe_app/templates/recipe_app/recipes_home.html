@@ -20,7 +20,7 @@
     <td>Recipe Names</td>
     <td>Recipe Images</td>
   </tr>
-  {% for recipe in recipe_app %}
+  {% for recipe in recipe %}
   <tr>
     <td><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
     {% comment%} print the name of recipe {% endcomment%}
