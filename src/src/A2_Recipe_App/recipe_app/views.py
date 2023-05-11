@@ -12,4 +12,4 @@ def recipe_detail(request, recipe_id):
         'recipe_ingredient':recipe_ingredient
     }
 
-    return render(request, context, 'recipe_app/recipe_detail.html')
+    return render(request, 'recipe_app/recipe_detail.html', context)

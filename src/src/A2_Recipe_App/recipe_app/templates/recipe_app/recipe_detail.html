@@ -8,15 +8,12 @@
   </tr>
   <tr>
     <td>Recipe Names</td>
-    {% comment%} the
-    <td>tag adds a column {% endcomment%}</td>
     <td>Recipe Images</td>
     <td>Ingredient Name</td>
     <td>Quantity</td>
     <td>Unit of Measurement</td>
   </tr>
-  {% for ingredient in recipe_ingredient %} {% comment%} now go through the list
-  element-by-element {% endcomment%}
+  {% for ingredient in recipe_ingredient %} 
   <tr>
     <td><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
     {% comment%} print the name of recipe {% endcomment%}
