@@ -5,11 +5,55 @@
     background-attachment: fixed;
 }
 
-#ingredientTable th, td, tr {
+#ingredientTable{
     border:1;
     border-spacing: 5px;
     padding: 8px;
     text-align: left;
-    background-color: aliceblue;
+    background-color: rgba(253, 207, 0, 0.85);
+    display:block
 }
 
+#ingredientTable th, td{
+    background-color: rgba(253, 207, 1);
+    opacity: 100%;
+}
+
+#recipeTable{
+    border:1;
+    border-spacing: 5px;
+    padding: 8px;
+    text-align: left;
+    background-color: rgba(253, 207, 1, 0.85);
+    display:block;
+    border-collapse: collapse; width: 100%;
+}
+
+
+
+#headerLogo{
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 480px) {
+    #topBlock{
+        display:flexbox;
+        background-color: rgba(253, 207, 1);
+        opacity: 100%;
+        }
+
+    #recipeUrls {
+        width: 100%;
+        background-color: rgba(253, 207, 1);
+        opacity: 100%;
+        max-width: fit-content;
+        }
+
+    #recipeImages {
+        width: 200px;
+        height: auto;
+        background-color: rgba(253, 207, 1);
+        opacity: 100%;
+        }
+    }

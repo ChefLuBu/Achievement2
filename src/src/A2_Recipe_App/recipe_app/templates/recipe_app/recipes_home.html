@@ -7,24 +7,20 @@
   <link rel="stylesheet" href="{% static 'recipe_app/css/recipe_app.css' %}">
 </head>
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
+<img id=headerLogo src="{% static 'recipe_app\images\headerlogo.png' %}" alt="Recipe App Logo"  />
 
-<h1>Your Recipe App</h1>
 {% comment%} HTML tag for heading {% endcomment%}
 
 <table id="recipeTable" aria-describedby="main page table showing available recipes" border="1" cellpadding="5" cellspacing="5">
-  {% comment%} start of table {% endcomment%}
-  <tr>
-    {% comment%} the  tag adds a new row {% endcomment%}
-  </tr>
-  <tr>
-    <th id="recipe names" >Recipe Names</th>
-    <th id="recipe images" >Recipe Images</th>
+  <tr id="topBlock">
+    <th id="recipeNames" >Recipe Names</th>
+    <th id="recipeImages" >Recipe Images</th>
   </tr>
   {% for recipe in recipe %}
-  <tr>
-    <td><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
+  <tr id="mainBlock">
+    <td id="recipeUrls"><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
     {% comment%} print the name of recipe {% endcomment%}
-    <td><img src="{{recipe.pic.url}}" width="150" height="200" /></td>
+    <td id="recipeImages"><img src="{{recipe.pic.url}}" width="150" height="200" /></td>
     {% comment%} display the picture of recipe {% endcomment%}
   </tr>
   {% endfor %}
