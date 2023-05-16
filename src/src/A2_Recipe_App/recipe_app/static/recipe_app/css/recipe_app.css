@@ -4,3 +4,12 @@
     background-size: auto 1900px;
     background-attachment: fixed;
 }
+
+#ingredientTable th, td, tr {
+    border:1;
+    border-spacing: 5px;
+    padding: 8px;
+    text-align: left;
+    background-color: aliceblue;
+}
+
