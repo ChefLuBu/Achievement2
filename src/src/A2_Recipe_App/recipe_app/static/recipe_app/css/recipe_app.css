@@ -23,13 +23,27 @@
     border:1;
     border-spacing: 5px;
     padding: 8px;
-    text-align: left;
     background-color: rgba(253, 207, 1, 0.85);
     display:block;
-    border-collapse: collapse; width: 100%;
+    border-collapse: collapse; width: 100%;  
+    text-align: center;
 }
 
+#recipeTable th{
+    letter-spacing: 1px;
+    font-size: large;
+}
 
+#recipeTable td{
+    text-align: center;
+    border-collapse: collapse; width: 30%;
+    image-resolution: 300dpi;
+}
+
+#recipeTable img{
+    width: 100%;
+    height: auto;
+}
 
 #headerLogo{
     max-width: 100%;
