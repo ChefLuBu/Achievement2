@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Recipe_app
 # Create your views here.
+
 def home(request):
-        return render(request, 'landing_page/landing_page.html')
+        return render(request, 'recipe_app/landing_page.html')
 
 def recipe_home(request):
     recipe=Recipe_app.objects.all()
@@ -14,6 +15,7 @@ def recipe_home(request):
 def recipe_detail(request, recipe_id):
     recipe=get_object_or_404(Recipe_app, pk=recipe_id)
     recipe_ingredient=recipe.recipe_ingredient_set.all()
+    template_name='recipe_app/recipe_detail.html'
     context={
         'recipe':recipe,
         'recipe_ingredient':recipe_ingredient

@@ -8,14 +8,11 @@
 </head>
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
 
-{% comment%} HTML tag for heading {% endcomment%}
 <a id=topLink href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a>
 </br>
 <img id= ingredientImage src="{{recipe.pic.url}}" width="340" height="auto" alt="a picture of the food selected from the main page" />
 <table id="ingredientTable" aria-describedby="a table showing the ingredient name, quantity of ingredient and units of measurement for the given recipe" border="1" >
-  {% comment%} start of table {% endcomment%}
   <tr>
-    {% comment%} the tag adds a new row {% endcomment%}
   </tr>
   <tr>
     
@@ -31,3 +28,8 @@
   </tr>
   {% endfor %}
 </table>
+<button onclick="window.location.href = '{% url 'recipe_app:recipes_home' %}';">Back to Main Page</button>
+<script>
+function goBack(){
+  window.history.back();
+}</script>
