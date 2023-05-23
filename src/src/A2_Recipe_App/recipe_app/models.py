@@ -21,13 +21,13 @@ class Recipe_app(models.Model):
     minutes = models.PositiveIntegerField(validators=[validate_minutes])
     ingredients = models.ManyToManyField(Ingredient, through="Recipe_ingredient")
 
-    def get_absolute_url(self, *args, **kwargs):
-        return reverse("recipe_app:recipe_detail", kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse("recipe_detail", kwargs={"pk": self.pk})
+    
     
     def __str__(self):
         return self.name
-
-    
+   
     
 
 class Recipe_ingredient(models.Model):

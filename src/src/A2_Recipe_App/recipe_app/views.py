@@ -12,13 +12,12 @@ def recipe_home(request):
     }
     return render(request, 'recipe_app/recipes_home.html',context)
 
-def recipe_detail(request, recipe_id):
-    recipe=get_object_or_404(Recipe_app, pk=recipe_id)
-    recipe_ingredient=recipe.recipe_ingredient_set.all()
-    template_name='recipe_app/recipe_detail.html'
-    context={
-        'recipe':recipe,
-        'recipe_ingredient':recipe_ingredient
+def recipe_detail(request, pk):
+    recipe = get_object_or_404(Recipe_app, id=pk)
+    context = {
+        'recipe': recipe,
+        'ingredients': recipe.ingredients.all()
     }
-
     return render(request, 'recipe_app/recipe_detail.html', context)
+
+

@@ -17,7 +17,7 @@
   </tr>
   {% for recipe in recipe %}
   <tr id="mainBlock">
-    <td id="recipeUrls"><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
+    <td id="recipeUrls"><a href="{{recipe_detail.get_absolute_url}}"> {{recipe.name}} </a></td>
     <td id="recipeImages"><img src="{{recipe.pic.url}}" alt="picture of food related to name of recipe" width="150" height="200" /></td>
   </tr>
   {% endfor %}
