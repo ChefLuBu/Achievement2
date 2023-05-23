@@ -11,7 +11,7 @@
 
 {% comment%} HTML tag for heading {% endcomment%}
 
-<table id="recipeTable" aria-describedby="main page table showing available recipes" border="1" cellpadding="5" cellspacing="5">
+<table id="recipeTable" aria-describedby="main page table showing available recipes" border="1">
   <tr id="topBlock">
     <th id="recipeNames" >Recipe Names</th>
     <th id="recipeImages" >Recipe Images</th>
@@ -20,7 +20,7 @@
   <tr id="mainBlock">
     <td id="recipeUrls"><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
     {% comment%} print the name of recipe {% endcomment%}
-    <td id="recipeImages"><img src="{{recipe.pic.url}}" width="150" height="200" /></td>
+    <td id="recipeImages"><img src="{{recipe.pic.url}}" alt="picture of food related to name of recipe" width="150" height="200" /></td>
     {% comment%} display the picture of recipe {% endcomment%}
   </tr>
   {% endfor %}

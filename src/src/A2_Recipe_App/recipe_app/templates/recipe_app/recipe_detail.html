@@ -9,10 +9,10 @@
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
 
 {% comment%} HTML tag for heading {% endcomment%}
-<a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a>
+<a id=topLink href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a>
 </br>
-<img src="{{recipe.pic.url}}" width="340" height="auto" alt="a picture of the food selected from the main page" />
-<table id="ingredientTable" aria-describedby="a table showing the ingredient name, quantity of ingredient and units of measurement for the given recipe" border="1" cellpadding="5" cellspacing="5">
+<img id= ingredientImage src="{{recipe.pic.url}}" width="340" height="auto" alt="a picture of the food selected from the main page" />
+<table id="ingredientTable" aria-describedby="a table showing the ingredient name, quantity of ingredient and units of measurement for the given recipe" border="1" >
   {% comment%} start of table {% endcomment%}
   <tr>
     {% comment%} the tag adds a new row {% endcomment%}
