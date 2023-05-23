@@ -21,14 +21,24 @@ class Recipe_app(models.Model):
     minutes = models.PositiveIntegerField(validators=[validate_minutes])
     ingredients = models.ManyToManyField(Ingredient, through="Recipe_ingredient")
 
+    def calculate_difficulty(self):
+        ingredients = self.ingredients.split(', ')
+        if self.cooking_time < 30 and len(ingredients) < 7:
+            difficulty = 'Easy'
+        elif self.cooking_time < 30 and len(ingredients) >= 7:
+            difficulty = 'Medium'
+        elif self.cooking_time >= 30 and len(ingredients) < 7:
+            difficulty = 'Intermediate'
+        elif self.cooking_time >= 30 and len(ingredients) >= 7:
+            difficulty = 'Hard'
+        return difficulty
+
     def get_absolute_url(self):
         return reverse("recipe_detail", kwargs={"pk": self.pk})
     
-        
     def __str__(self):
         return self.name
-   
-    
+
 
 class Recipe_ingredient(models.Model):
     quantity = models.FloatField(default=0)
@@ -40,4 +50,6 @@ class Recipe_ingredient(models.Model):
         "Ingredient", on_delete=models.CASCADE, default="none listed"
     )
 
-    
+    def __str__(self):
+        return self.name
+   
