@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.urls import reverse
 
 
 def validate_minutes(value):
@@ -32,3 +33,6 @@ class Recipe_ingredient(models.Model):
     ingredient = models.ForeignKey(
         "Ingredient", on_delete=models.CASCADE, default="none listed"
     )
+
+    def get_absolute_url(self):
+        return reverse("recipe_detail", kwargs={"pk": self.pk})
