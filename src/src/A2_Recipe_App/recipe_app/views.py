@@ -12,7 +12,7 @@ def recipe_home(request):
     return render(request, 'recipe_app/recipes_home.html',context)
 
 def recipe_detail(request, pk):
-    recipe=get_object_or_404(Recipe_app, recipe_id=pk)
+    recipe=get_object_or_404(Recipe_app, pk=pk)
     recipe_ingredient=recipe.recipe_ingredient_set.all()
     context={
         'recipe':recipe,
