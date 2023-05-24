@@ -8,23 +8,22 @@
 </head>
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
 
-<a id=topLink href="{{recipe_detail.get_absolute_url}}"> {{recipe.name}} </a>
+<a id=topLink href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a>
 </br>
 <img id= ingredientImage src="{{recipe.pic.url}}" width="340" height="auto" alt="a picture of the food selected from the main page" />
-<table id="ingredientTable" aria-describedby="a table showing the ingredient name, quantity of ingredient and units of measurement for the given recipe" border="1" >
-  <tr>
-  </tr>
-  <tr>
-    
+<table id="ingredientTable" aria-describedby="a table showing the ingredient name, quantity of ingredient and units of measurement for the given recipe" border="1" cellpadding="5" cellspacing="5" >
+  <tr> 
     <th id="ingredient name">Ingredient Name</th>
     <th id="quantity">Quantity</td>
     <th id="unit of measurement">Unit of Measurement</td>
   </tr>
-  {% for ingredient in recipe_ingredient %} 
+  {% for ingredients in recipe_ingredient %} 
   <tr>
     <td>{{ingredient.ingredient.ingredient_name}}</td>
     <td>{{ingredient.quantity}}</td>
     <td>{{ingredient.unit_of_measurement}}</td>
+  </tr>
+  <tr>
   </tr>
   {% endfor %}
 </table>

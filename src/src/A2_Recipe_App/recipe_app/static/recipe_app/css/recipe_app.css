@@ -83,7 +83,7 @@
     letter-spacing: 1px;
     opacity: 100%;
     background-color: #ff3432;
-    color: #ffffff;
+    color: hsl(0, 0%, 100%);
     font-size: xx-large;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px #000;
