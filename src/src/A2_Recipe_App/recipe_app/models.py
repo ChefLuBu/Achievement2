@@ -7,8 +7,8 @@ def validate_minutes(value):
     if value % 1 != 0 or value <= 0:
         raise ValidationError("Value must be a positive integer representing minutes.")
 
-def get_absolute_url(self):
-    return reverse('recipe_app:recipe_detail', kwargs={'pk': self.pk})
+
+
 class Ingredient(models.Model):
     ingredient_name = models.CharField(default="none listed", max_length=200)
 
@@ -24,6 +24,8 @@ class Recipe_app(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('recipe_app:recipe_detail', kwargs={'pk': self.pk})
 
 class Recipe_ingredient(models.Model):
     quantity = models.FloatField(default=0)

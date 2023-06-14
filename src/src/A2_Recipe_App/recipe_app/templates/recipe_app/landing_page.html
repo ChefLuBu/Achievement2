@@ -8,6 +8,8 @@
 </head>
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
 <img id=headerLogo src="{% static 'recipe_app\images\headerlogo.png' %}" alt="Recipe App Logo"  />
+<h1>Welcome to the Front Page</h1>
+<a href="{% url 'recipes_home' %}">Check out our recipes!</a>
 
 {% comment%} HTML tag for heading {% endcomment%}
 

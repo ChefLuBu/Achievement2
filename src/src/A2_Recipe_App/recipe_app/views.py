@@ -4,7 +4,7 @@ from .models import Recipe_app
 def home(request):
         return render(request, 'recipe_app/landing_page.html')
 
-def recipe_home(request):
+def recipes_home(request):
     recipe=Recipe_app.objects.all()
     context={
         'recipe':recipe
