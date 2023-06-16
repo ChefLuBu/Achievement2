@@ -100,31 +100,31 @@
 }
 
 #difficultyTable{
-    border:1;
+    border:1px solid black;
     border-spacing: 5px;
     padding: 8px;
     background-color: rgba(253, 207, 1, 0.85);
     text-align: center;
     table-layout: fixed;
-    display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 #difficultyTable th{
+    border:1px solid black;
     letter-spacing: 1px;
     opacity: 100%;
     background-color: #ff3432;
     color: #ffffff;
     font-size: xx-large;
     text-transform: uppercase;
-    text-shadow: 2px 2px 4px #000;
+    text-shadow: 2px 2px 4px #000;  
 }
 
 #difficultyTable td{
+    border:1px solid black;
     text-align: center;
     border-collapse: collapse; width: 30%;
-    image-resolution: 300dpi;
     font-size: xx-large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;

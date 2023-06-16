@@ -26,7 +26,6 @@ class Recipe_appTest(TestCase):
         directions = Recipe_app.objects.get(id=1)
         field_label = directions._meta.get_field('directions').verbose_name
         self.assertEquals(field_label, 'step')  
-                
 
     def test_cooking_time(self):
         minutes = Recipe_app.objects.get(id=1)

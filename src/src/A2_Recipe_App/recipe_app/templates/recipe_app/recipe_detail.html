@@ -33,13 +33,9 @@
 </table>
 <table id="difficultyTable" aria-describedby="A table detailing the difficulty of a recipe in 4 varying levels">
   <tr>
-    <th id="Difficulty">Difficulty</td>
+    <th id="Difficulty">Difficulty:</td>
+    <td>{{recipe.calculate_difficulty}}</td>
   </tr>
-{% for ingredient in recipe_app %} 
-  <tr>
-    <td>{{ingredient.calculate_difficulty}}</td>
-  </tr>
-{% endfor %}
 </table> 
 <input type=button id="backbutton" value="Previous Page" onClick="javascript:history.go(-1);">
 </body>
