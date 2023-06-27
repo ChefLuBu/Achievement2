@@ -9,7 +9,7 @@
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
 <img id=headerLogo src="{% static 'recipe_app\images\headerlogo.png' %}" alt="Recipe App Logo"  />
 
-{% comment%} HTML tag for heading {% endcomment%}
+{% comment %} HTML tag for heading {% endcomment %}
 
 <table id="recipeTable" aria-describedby="main page table showing available recipes" border="1">
   <tr id="topBlock">
@@ -19,10 +19,11 @@
   {% for recipe in recipe %}
   <tr id="mainBlock">
     <td id="recipeUrls"><a href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a></td>
-    {% comment%} print the name of recipe {% endcomment%}
+    {% comment%} print the name of recipe {% endcomment %}
     <td id="recipeImages"><img src="{{recipe.pic.url}}" alt="picture of food related to name of recipe" width="150" height="200" /></td>
-    {% comment%} display the picture of recipe {% endcomment%}
+    {% comment%} display the picture of recipe {% endcomment %}
   </tr>
   {% endfor %}
 </table>
+<a id="logoutButton" href ="{%url 'logout' %}"> Logout </a>
 </body>

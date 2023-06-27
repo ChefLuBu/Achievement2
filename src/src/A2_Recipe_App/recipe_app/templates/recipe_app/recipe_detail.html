@@ -8,14 +8,14 @@
 </head>
 <body id=bg style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}');">
 
-{% comment%} HTML tag for heading {% endcomment%}
+{% comment %} HTML tag for heading {% endcomment %}
 <a id=topLink href="{{recipe.get_absolute_url}}"> {{recipe.name}} </a>
 </br>
 <img id= ingredientImage src="{{recipe.pic.url}}" width="340" height="auto" alt="a picture of the food selected from the main page" />
 <table id="ingredientTable" aria-describedby="a table showing the ingredient name, quantity of ingredient and units of measurement for the given recipe" border="1" >
-  {% comment%} start of table {% endcomment%}
+  {% comment %} start of table {% endcomment %}
   <tr>
-    {% comment%} the tag adds a new row {% endcomment%}
+    {% comment %} the tag adds a new row {% endcomment %}
   </tr>
   <tr>
     
@@ -33,9 +33,19 @@
 </table>
 <table id="difficultyTable" aria-describedby="A table detailing the difficulty of a recipe in 4 varying levels">
   <tr>
-    <th id="Difficulty">Difficulty:</td>
+    <th id="Difficulty">Difficulty:</th>
     <td>{{recipe.calculate_difficulty}}</td>
+    <th id="Time in minutes">Time in Minutes</td>
+    <td>{{recipe.minutes}}</td>
+    <br>
   </tr>
 </table> 
+<table id="directionsTable" aria-describedby="A table detailing the directions of a recipe">
+  <tr> 
+    <th id="Directions">Directions</th>
+    <td>{{recipe.directions}}</td>
+  </tr>
+</table>
 <input type=button id="backbutton" value="Previous Page" onClick="javascript:history.go(-1);">
+<a id="logoutButton" href ="{%url 'logout' %}"> Logout </a>
 </body>
