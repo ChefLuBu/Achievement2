@@ -39,3 +39,6 @@ def recipe_detail(request, pk):
     }
 
     return render(request, 'recipe_app/recipe_detail.html', context)
+
+def records(request):
+    return render(request, 'recipe_app/records.html')
