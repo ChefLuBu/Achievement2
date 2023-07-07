@@ -1,6 +1,11 @@
 <h1>Login</h1>          {% comment %} print heading {% endcomment %}
 
 {% comment %} check for error message {% endcomment %}
+{% if messages %}
+   {% for message in messages %}
+      <p>{{message}}</p>
+   {% endfor %}
+{% endif %}
 {% if error_message %}
    {{error_message}}
 {% endif %}

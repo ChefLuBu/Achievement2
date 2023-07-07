@@ -13,13 +13,6 @@ from django.views.generic import ListView, DetailView
 def home(request):
         return render(request, 'recipe_app/landing_page.html')
 
-class RecipeListView(LoginRequiredMixin, ListView):     #class-based “protected” view
-    model = Recipe_app                                  #specify model
-    template_name = 'recipes_home.html'                 #specify template
-
-class RecipeDetailView(LoginRequiredMixin, DetailView):   #class-based “protected” view
-    model = Recipe_app                                   #specify model
-    template_name = 'recipe_detail.html'                 #specify template
 
 @login_required
 
@@ -30,6 +23,8 @@ def recipes_home(request):
     }
     return render(request, 'recipe_app/recipes_home.html',context)
 
+@login_required
+
 def recipe_detail(request, pk):
     recipe=get_object_or_404(Recipe_app, pk=pk)
     recipe_ingredient=recipe.recipe_ingredient_set.all()
@@ -39,6 +34,8 @@ def recipe_detail(request, pk):
     }
 
     return render(request, 'recipe_app/recipe_detail.html', context)
+
+@login_required
 
 def records(request):
     return render(request, 'recipe_app/records.html')
