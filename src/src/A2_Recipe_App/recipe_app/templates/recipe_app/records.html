@@ -1,2 +1,15 @@
 <h1>Search for Records</h1>
 <hr>
+<form action="" method="POST">
+   {% csrf_token %}
+   {{form}}
+   <button type="submit" >search</button>
+
+</form> 
+<br>
+
+{% if recipe_App_df %}
+   {{recipe_App_df|safe}}
+{% else %}
+    <h3>No Records Found</h3>
+{% endif %}
