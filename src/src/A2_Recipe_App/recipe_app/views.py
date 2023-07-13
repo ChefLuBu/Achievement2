@@ -3,7 +3,11 @@ from .models import Recipe_app
 from django.contrib.auth.decorators import login_required
 from .forms import RecipeSearchForm
 from.models import Recipe_app
+from .utils import get_recipename_from_id, get_chart
+
+
 import pandas as pd
+
 
 # Create your views here.
 
@@ -41,6 +45,7 @@ def recipe_detail(request, pk):
 def records(request):
     form=RecipeSearchForm(request.POST or None)
     recipe_app_df=None
+    chart=None
 
     #if the form is valid, then we want to print the recipe name and chart type
     if request.method == 'POST':
@@ -50,9 +55,14 @@ def records(request):
         qs = Recipe_app.objects.filter(name__icontains=name)
         if qs:
             recipe_app_df = pd.DataFrame(qs.values())
+            recipe_app_df['recipe_name'] = recipe_app_df['id'].apply(get_recipename_from_id)
 
-        recipe_app_df=recipe_app_df.to_html()
+            recipe_app_df=recipe_app_df.to_html()
+            chart=get_chart(chart_type, data=recipe_app_df, name='recipe_name', value='minutes')
 
+
+        #The following block is to get introduced to querysets
+        #display in terminal - needed for debugging during development only
         print(name, chart_type)
         print('Now Searching')
         print('Case 1: Output of Recie.app.obects.all()')
@@ -74,8 +84,11 @@ def records(request):
         print(obj)
 
 
+    #pass the form to the template
     context={
         'form':form,
-        'recipe_app_df':recipe_app_df
+        'recipe_app_df':recipe_app_df,
+        'chart':chart
     }
+    #render the template
     return render(request, 'recipe_app/records.html', context)

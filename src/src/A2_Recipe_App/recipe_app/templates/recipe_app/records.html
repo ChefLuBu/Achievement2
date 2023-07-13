@@ -8,8 +8,10 @@
 </form> 
 <br>
 
-{% if recipe_App_df %}
-   {{recipe_App_df|safe}}
+{% if recipe_app_df %}
+   {{recipe_app_df|safe}}
+   <br>
+   <img src="{{recipe_app_df}}" alt="picture of food related to name of recipe" width="150" height="200" />
 {% else %}
     <h3>No Records Found</h3>
 {% endif %}
