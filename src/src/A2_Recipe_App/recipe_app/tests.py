@@ -31,3 +31,14 @@ class Recipe_appTest(TestCase):
         minutes = Recipe_app.objects.get(id=1)
         field_label = minutes._meta.get_field('minutes').verbose_name
         self.assertEquals(field_label, 'minutes')
+
+class RecipeFormTest(TestCase):
+    def test_recipe_form(self):
+        form_data = {'name': 'test', 'ingredient_name': 'cheese', 'directions': 'mix it up', 'minutes': '30'}
+        form = RecipeForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_recipe_form_invalid(self):
+        form_data = {'name': 'test', 'ingredient_name': 'cheese', 'directions': 'mix it up', 'minutes': '30'}
+        form = RecipeForm(data=form_data)
+        self.assertFalse(form.is_valid())

@@ -57,9 +57,10 @@ def records(request):
             recipe_app_df = pd.DataFrame(qs.values())
             recipe_app_df['recipe_name'] = recipe_app_df['id'].apply(get_recipename_from_id)
 
+            chart = get_chart(chart_type, recipe_app_df,
+                          labels=recipe_app_df['name'].values)
+            
             recipe_app_df=recipe_app_df.to_html()
-            chart=get_chart(chart_type, data=recipe_app_df, name='recipe_name', value='minutes')
-
 
         #The following block is to get introduced to querysets
         #display in terminal - needed for debugging during development only

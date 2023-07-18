@@ -49,6 +49,7 @@ def get_chart(chart_type, data, **kwargs):
 
     elif chart_type == '#3':
         plt.plot(data['name'], data['minutes'])
+    
     else:
         print('unknown chart type')
 

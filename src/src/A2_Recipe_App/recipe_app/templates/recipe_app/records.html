@@ -1,17 +1,41 @@
-<h1>Search for Records</h1>
-<hr>
-<form action="" method="POST">
-   {% csrf_token %}
-   {{form}}
-   <button type="submit" >search</button>
+<!DOCTYPE html>
+{% load static %}
+<head>
+  <meta charset="utf-8" />
+  <title>Your Recipe App</title>
+  <meta name="viewport" content="width=device-width, ininital-scale=1" />
+  <link rel="stylesheet" href="{% static 'recipe_app/css/recipe_app.css' %}" />
+</head>
+<body
+  id="bg"
+  style="background-image: url('{%static 'recipe_app\images\FoodAppBG.png'%}')"
+>
+  <img
+    id="headerLogo"
+    src="{% static 'recipe_app\images\headerlogo.png' %}"
+    alt="Recipe App Logo"
+  />
+  <div id="searchHeader">
+    <h1>Search for Records</h1>
+  </div>
+  
+  <div id="formInput">
+    <form action="" method="POST">
+      {% csrf_token %} {{form}}
+      <button type="submit">search</button>
+    </form>
+    <br />
+  </div>
+<div id="searchReturn">
+  {% if recipe_app_df %} {{recipe_app_df|safe}}
+  <br />
+  <img src="data:image/png;base64, {{chart|safe}}" />
+  {% else %}
+  <h3>No Records Found</h3>
+  {% endif %}
+</div>
 
-</form> 
-<br>
-
-{% if recipe_app_df %}
-   {{recipe_app_df|safe}}
-   <br>
-   <img src="{{recipe_app_df}}" alt="picture of food related to name of recipe" width="150" height="200" />
-{% else %}
-    <h3>No Records Found</h3>
-{% endif %}
+  <br />
+  <br />
+  <a id="logoutButton" href="{%url 'logout' %}"> Logout </a>
+</body>

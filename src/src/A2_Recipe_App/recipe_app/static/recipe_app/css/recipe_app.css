@@ -205,3 +205,41 @@
     margin-top: 10px;
     color: #ffffff;
 }
+
+#searchHeader{
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #ff3432;
+    font-size: large;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px #000;
+    border: 2px solid #ffffff;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+#formInput{
+    font-size: x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    margin-top: 10px;
+    color: #ffffff;
+    box-shadow: 2px 2px 4px #000;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #ff3432;
+}
+
+#searchReturn{
+    border:1px solid black;
+    border-spacing: 5px;
+    padding: 8px;
+    background-color: rgba(253, 207, 1);
+    text-align: center;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
