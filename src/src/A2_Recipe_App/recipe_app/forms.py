@@ -9,6 +9,7 @@ CHART__CHOICES = (
 
 # Create your forms here.
 class RecipeSearchForm(forms.Form):
-    recipe_name = forms.CharField(label='Recipe Name', max_length=100)
+    recipe_name = forms.CharField(label='Recipe Name', max_length=100),
+    difficulty = forms.CharField(label='Difficulty', max_length=100),
     chart_type = forms.ChoiceField(choices=CHART__CHOICES, widget=forms.RadioSelect)
 

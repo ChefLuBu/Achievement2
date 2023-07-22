@@ -1,44 +1,50 @@
 from django.test import TestCase
 from .models import Recipe_app
+from .forms import RecipeSearchForm
 
 
 # Create your tests here.
 class Recipe_appTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        Recipe_app.objects.create(name='test')
-        Recipe_app.objects.create(directions = 'mix it up')
-        Recipe_app.objects.create(ingredient_name = 'cheese')
-        Recipe_app.objects.create(minutes = '30')
-
+        Recipe_app.objects.create(name="test")
+        Recipe_app.objects.create(directions="mix it up")
+        Recipe_app.objects.create(ingredient_name="cheese")
+        Recipe_app.objects.create(minutes="30")
 
     def test_name_label(self):
         recipe = Recipe_app.objects.get(id=1)
-        field_label = recipe._meta.get_field('name').verbose_name
-        self.assertEquals(field_label, 'name')
+        field_label = recipe._meta.get_field("name").verbose_name
+        self.assertEquals(field_label, "name")
 
     def test_name_label(self):
         ingredient_name = Recipe_app.objects.get(id=1)
-        field_label = ingredient_name._meta.get_field('ingredient name').verbose_name
-        self.assertEquals(field_label, 'name')
+        field_label = ingredient_name._meta.get_field("ingredient name").verbose_name
+        self.assertEquals(field_label, "name")
 
     def test_name_label(self):
         directions = Recipe_app.objects.get(id=1)
-        field_label = directions._meta.get_field('directions').verbose_name
-        self.assertEquals(field_label, 'step')  
+        field_label = directions._meta.get_field("directions").verbose_name
+        self.assertEquals(field_label, "step")
 
     def test_cooking_time(self):
         minutes = Recipe_app.objects.get(id=1)
-        field_label = minutes._meta.get_field('minutes').verbose_name
-        self.assertEquals(field_label, 'minutes')
+        field_label = minutes._meta.get_field("minutes").verbose_name
+        self.assertEquals(field_label, "minutes")
+
 
 class RecipeFormTest(TestCase):
-    def test_recipe_form(self):
-        form_data = {'name': 'test', 'ingredient_name': 'cheese', 'directions': 'mix it up', 'minutes': '30'}
-        form = RecipeForm(data=form_data)
-        self.assertTrue(form.is_valid())
-
     def test_recipe_form_invalid(self):
-        form_data = {'name': 'test', 'ingredient_name': 'cheese', 'directions': 'mix it up', 'minutes': '30'}
-        form = RecipeForm(data=form_data)
+        form_data = {
+            "name": "test",
+            "ingredient_name": "cheese",
+            "directions": "mix it up",
+            "minutes": "30",
+        }
+        form = RecipeSearchForm(data=form_data)
         self.assertFalse(form.is_valid())
+
+    def test_chart_type(self):
+        form = RecipeSearchForm(data={"chart_type": "#1",
+                                      "difficulty": "easy",})
+        self.assertTrue(form.is_valid())
